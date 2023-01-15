@@ -1,7 +1,8 @@
 ﻿namespace PlaceEverywhere;
 
 public static class ModHelperData
-{
+{    
+    public const string WorksOnVersion = "34.3";
     public const string Name = "PlaceEverywhere";
     public const string Description = "PlaceEverywhere by GrahamKracker";
     public const string Version = "1.0.0";
