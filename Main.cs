@@ -20,25 +20,36 @@ namespace PlaceEverywhere;
 [HarmonyPatch]
 public class Main : BloonsTD6Mod
 {
-    [HarmonyPatch(typeof(TowerModel), nameof(TowerModel.IsTowerPlaceableInAreaType))]
-    [HarmonyPostfix]
-    public static void TowerModel_IsTowerPlaceableInAreaType(ref bool __result)
+    [HarmonyPatch(typeof(TowerModel), nameof(TowerModel.IsPlaceableInAreaType))]
+    [HarmonyPrefix]
+    public static bool TowerModel_IsPlaceableInAreaType(ref bool __result)
     {
         __result = true;
+        return false;
+    }
+    
+    [HarmonyPatch(typeof(TowerModel), nameof(TowerModel.ContainsAreaType))]
+    [HarmonyPrefix]
+    public static bool TowerModel_ContainsAreaType(ref bool __result)
+    {
+        __result = true;
+        return false;
     }
 
     [HarmonyPatch(typeof(Map), nameof(Map.CanPlace))]
-    [HarmonyPostfix]
-    public static void Map_CanPlace(ref bool __result)
+    [HarmonyPrefix]
+    public static bool Map_CanPlace(ref bool __result)
     {
         __result = true;
+        return false;
     }
 
-    [HarmonyPatch(typeof(Map), nameof(Map.IsTowerPlaceableInAreaType))]
-    [HarmonyPostfix]
-    public static void Map_IsTowerPlaceableInAreaType(ref bool __result)
+    [HarmonyPatch(typeof(Map), nameof(Map.IsPlaceableInAreaType))]
+    [HarmonyPrefix]
+    public static bool Map_IsPlaceableInAreaType(ref bool __result)
     {
         __result = true;
+        return false;
     }
 
     public override void OnNewGameModel(GameModel result)

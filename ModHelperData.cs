@@ -2,10 +2,8 @@
 
 public static class ModHelperData
 {    
-    public const string WorksOnVersion = "34.3";
+    public const string WorksOnVersion = "36.3";
     public const string Name = "PlaceEverywhere";
-    public const string Description = "PlaceEverywhere by GrahamKracker";
     public const string Version = "1.0.0";
     public const string RepoOwner = "GrahamKracker";
-    public const string RepoName = "PlaceEverywhere";
 }
